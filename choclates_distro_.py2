@@ -1,0 +1,19 @@
+def main():
+  n=int(raw_input())
+  i=1
+  arr=[]
+  while (n>=(i)):
+   arr.append(i)  
+   n=n-i 
+   i=i+1
+   
+  m=len(arr)-1 
+  if n > 0:
+   #print(n,i)
+   val=arr[i-2] + n
+   del arr[m]
+   arr.append(val)
+  print(len(arr))
+  print(' '.join(str(e) for e in arr))
+	
+main()

@@ -1,0 +1,27 @@
+def getKey(item):
+ return item[1]
+ 
+def main():
+ n=int(raw_input())
+ arr=[]
+ for i in range(0,n):
+  (a,l)=map(int,raw_input().split())
+  arr.append((a,l))
+ 
+ arr=sorted(arr,key=getKey) 
+ #print(arr) 
+ flag=False
+ pt=[]
+ for i in arr:
+  flag=True     
+  for j in arr[1:]:
+    if i[1] in set(range(j[0],j[1]+1)):
+      del arr[arr.index(j)]
+      flag=True
+  if flag:
+    pt.append(i[1])
+ 
+ print(len(pt))   
+ print(' '.join(str(e) for e in pt))     
+    
+main() 
