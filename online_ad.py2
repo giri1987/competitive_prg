@@ -1,0 +1,13 @@
+n=int(raw_input())
+arr=map(int,raw_input().split())
+arr_=map(int,raw_input().split())
+
+arr.sort(reverse=True)
+arr_.sort(reverse=True)
+val=0
+#print(arr,arr_)
+for i in range(0,n):
+ val=val+arr[i]*arr_[i]
+ #print(val)
+ 
+print(val) 

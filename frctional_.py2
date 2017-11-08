@@ -1,0 +1,44 @@
+(n,W)=map(int,raw_input().split())
+dicti={}
+for i in range(n):
+  (v,w)=map(int,raw_input().split())
+  dicti[v]=w 
+
+#print(dicti)  
+dicti_={}
+
+for (key,value) in dicti.items():
+  if value > 0:
+   dicti_[key]=round(float(key)/value,4)
+  else:
+   dicti_[key]=0.0  
+   
+order=sorted(dicti_,key=dicti_.__getitem__,reverse=True)
+
+#print(order)
+
+value=0
+carry=0
+need=0
+avail=0
+
+for i in order[:]:
+  need=abs(W-carry)
+  avail=dicti[i]
+  if avail <= need:
+    need=avail
+  
+   
+ # print(need)
+ # print(avail)
+  if carry < W :
+    carry=carry + abs(W-avail)
+  #  print("carry:",carry)
+    value=value+dicti_[i]*need
+  #  print("value:",value)
+    
+  if carry >= W:
+    break
+  
+  
+print("{0:.4f}".format(value))
