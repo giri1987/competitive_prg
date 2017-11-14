@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+4 
+This is a temporary script file.
+"""
+
+def binarySearch(arr,l,r,ele):
+ if l>r:
+  return -1
+ mid=l+((r-l)/2)
+ mid_ele=arr[mid]
+ if mid_ele == ele :
+  return (mid)
+ elif mid_ele < ele : 
+  return binarySearch(arr,(mid+1),r,ele)
+ else :
+  return binarySearch(arr,l,(mid-1),ele)
+
+def main():
+ arr=map(int,raw_input().split())
+ arr=arr[1:]
+ #print(arr)
+ keys=map(int,raw_input().split())
+ #   print(keys)
+ keys=keys[1:]
+ 
+ op=[]
+ for i in keys:
+  #print(i)
+  op.append(binarySearch(arr,0,len(arr)-1,i)) 
+ 
+ print(' '.join(str(e) for e in op))     
+    
+main()  
