@@ -54,7 +54,11 @@ def partition(l,r):
  #print(vals)   
  pivot=vals[l]
  j=l
- for i in range((l+1),r+1):
+ 
+ #for i in range((l+1),r+1):
+ #Note : As we are calling as upper bound : r which is already (n+1).
+ 
+ for i in range((l+1),r): 
   if vals[i] <= pivot:
    j=j+1
    swap(i,j) 
